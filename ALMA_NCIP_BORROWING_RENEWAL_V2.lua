@@ -1,4 +1,4 @@
--- Alma NCIP Borrowing Renewal Server Addon, version 1.1.1.1 (January 6, 2020)
+-- Alma NCIP Borrowing Renewal Server Addon, version 2.0 (January 6, 2020)
 -- This Server Addon was developed by Bill Jones (SUNY Geneseo) and Tim Jackson (SUNY Libraries Shared Services)
 -- The purpose of this Addon is to allow for NCIP Borrowing Renewals to Alma where a Barcode for an item has been used in a field (like ItemInfo5) and sent to Alma as the Barcode
 -- If a field has been selected for use (in the Config of this Addon), and that field is not blank, this Addon will send that Barcode as the Identifier for the item to Alma for renewal
