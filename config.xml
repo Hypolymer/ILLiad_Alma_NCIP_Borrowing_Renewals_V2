@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>ALMA_NCIP_BORROWING_RENEWAL_V2</Name>
+  <Author>Bill Jones, SUNY Geneseo and Tim Jackson, SUNY SLSS</Author>
+  <Version>2.0</Version>
+  <Active>True</Active>
+  <Type>Server</Type>
+  <Description>This Server addon allows ILLiad to renew items in Alma via NCIP protocol using Barcodes.</Description>
+  <Forms />
+  <Settings>
+  	
+  	
+    <Setting name="FieldToUseForBarcode" value="" type="string">
+      <Description>This setting determines what field you use to get the barcode from the ILLiad TN to send to Alma.  If blank, the Addon will use the TransactionNumber field.</Description>
+    </Setting>  	
+    <Setting name="NCIP_Responder_URL" value="https://suny-xxx.alma.exlibrisgroup.com/view/NCIPServlet" type="string">
+      <Description>This setting value is the address for the NCIP Responder URL. It is your Alma server,i.e., na01.alma.exlibrisgroup.com/view/NCIPServlet, na02.alma.exlibrisgroup.com/view/NCIPServlet.</Description>
+    </Setting>
+    <Setting name="renewItem_from_uniqueAgency_value" value="01SUNY_XXX" type="string">
+      <Description>This is your institutional Alma Code.</Description>
+    </Setting>
+    <Setting name="ApplicationProfileType" value="ILL" type="string">
+      <Description>Input the Resource Sharing Partner code used in Alma.</Description>
+	</Setting>
+	<Setting name="RenewItemSearchQueue" value="" type="string">
+      <Description>The queue the addon will monitor to process requests.</Description>
+    </Setting>
+	<Setting name="RenewItemSuccessQueue" value="" type="string">
+      <Description>This designates the name of the queue a Borrowing Transaction will be moved to if the RenewItem function is successful.</Description>
+    </Setting>
+    <Setting name="RenewItemFailQueue" value="" type="string">
+      <Description>This designates the name of the queue a Borrowing Transaction will be moved to if the RenewItem function fails.</Description>
+    </Setting>
+  </Settings>
+  <Files>
+    <File>ALMA_NCIP_BORROWING_RENEWAL_V2.lua</File>
+  </Files>
+</Configuration>
