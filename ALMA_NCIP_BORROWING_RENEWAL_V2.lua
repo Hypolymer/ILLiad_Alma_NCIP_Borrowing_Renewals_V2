@@ -1,4 +1,4 @@
--- Alma NCIP Borrowing Renewal Server Addon, version 2.1 (July 12, 2023)
+-- Alma NCIP Borrowing Renewal Server Addon, version 2.2 (July 19, 2023)
 -- This Server Addon was developed by Bill Jones (SUNY Geneseo) and Tim Jackson (SUNY Libraries Shared Services)
 -- The purpose of this Addon is to allow for NCIP Borrowing Renewals to Alma where a Barcode for an item has been used in a field (like ItemInfo5) and sent to Alma as the Barcode
 -- If a field has been selected for use (in the Config of this Addon), and that field is not blank, this Addon will send that Barcode as the Identifier for the item to Alma for renewal
@@ -54,7 +54,9 @@ function ProcessItems()
 end
 
 function HandleContextProcessing()
-	local transactionNumber = GetFieldValue("Transaction", "TransactionNumber");
+
+	local currentTN_int = GetFieldValue("Transaction", "TransactionNumber");
+	local transactionNumber = luanet.import_type("System.Convert").ToDouble(currentTN_int);
 	local RequestType = GetFieldValue("Transaction", "RequestType");
 
 	-- Need to call the RenewItem function passing in the TN. Need an IF statement to start it
@@ -68,7 +70,8 @@ end
 function RenewItem()
 	LogDebug("Creating url");
 	local user = GetFieldValue("Transaction", "Username");
-	local transactionNumber = GetFieldValue("Transaction", "TransactionNumber");
+	local currentTN_int = GetFieldValue("Transaction", "TransactionNumber");
+	local transactionNumber = luanet.import_type("System.Convert").ToDouble(currentTN_int);
 	local transactionNumbertoSend = "";
 	LogDebug("FieldToUseForBarcode value: " .. Settings.FieldToUseForBarcode);
 
@@ -141,7 +144,9 @@ function RenewItem()
 	if Settings.FieldToUseForBarcode ~= "" then
 		if GetFieldValue("Transaction", Settings.FieldToUseForBarcode) == "" then
 			LogDebug("Attempting FieldToUseForBarcode Config Setting is not blank and FieldToUseForBarcode IS blank");	
-			transactionNumbertoSend = GetFieldValue("Transaction", "TransactionNumber");
+		    local currentTN_int = GetFieldValue("Transaction", "TransactionNumber");
+	        local transactionNumbertoSend = luanet.import_type("System.Convert").ToDouble(currentTN_int);
+			
 			local dr = tostring(GetFieldValue("Transaction", "DueDate"));
 			LogDebug(dr);
 			local df = string.match(dr, "%d+/%d+/%d+");
@@ -207,7 +212,9 @@ function RenewItem()
 		
 	if Settings.FieldToUseForBarcode == "" then
 		LogDebug("Attempting FieldToUseForBarcode Config Setting IS blank");
-		transactionNumbertoSend = GetFieldValue("Transaction", "TransactionNumber");	
+	    local currentTN_int = GetFieldValue("Transaction", "TransactionNumber");
+	    local transactionNumbertoSend = luanet.import_type("System.Convert").ToDouble(currentTN_int);	
+				
 		local dr = tostring(GetFieldValue("Transaction", "DueDate"));
 		LogDebug(dr);
 		local df = string.match(dr, "%d+/%d+/%d+");
