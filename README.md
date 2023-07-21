@@ -2,7 +2,7 @@
 
 Hello and Welcome!
 
-This is the official GitHub repository containing the latest updates for the ILLiad Alma NCIP  NCIP Borrowing Renewals V2 Server Addon.   The latest version of this Addon submitted to Atlas Systems can be found at the [ILLiad Addons Directory](https://atlas-sys.atlassian.net/wiki/spaces/ILLiadAddons/pages/3149601/ILLiad+Alma+NCIP+Borrowing+Renewal+Server+Addon).  
+This is the official GitHub repository containing the latest updates for the ILLiad Alma NCIP Borrowing Renewals V2 Server Addon.   The latest version of this Addon submitted to Atlas Systems can be found at the [ILLiad Addons Directory](https://atlas-sys.atlassian.net/wiki/spaces/ILLiadAddons/pages/3149601/ILLiad+Alma+NCIP+Borrowing+Renewal+Server+Addon).  
 
 This is a Server Addon for ILLiad allowing for renewals from ILLiad to Alma via NCIP using a selectable ILLiad field as the barcode of an item.  If a field for a barcode is not set in the configuration, or if the ILLiad field selected for the barcode is blank, the Addon will send the Transaction Number by default.
 
