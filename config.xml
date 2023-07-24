@@ -2,7 +2,7 @@
 <Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Name>ALMA_NCIP_BORROWING_RENEWAL_V2</Name>
   <Author>Bill Jones, SUNY Geneseo and Tim Jackson, SUNY SLSS</Author>
-  <Version>2.1</Version>
+  <Version>2.2</Version>
   <Active>True</Active>
   <Type>Server</Type>
   <Description>This Server addon allows ILLiad to renew items in Alma via NCIP protocol using Barcodes.</Description>
