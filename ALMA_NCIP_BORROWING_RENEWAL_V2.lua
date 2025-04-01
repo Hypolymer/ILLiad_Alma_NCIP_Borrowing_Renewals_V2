@@ -50,8 +50,18 @@ function TimerElapsed(eventArgs)
 end
 
 function ProcessItems()
-	ProcessDataContexts("TransactionStatus", Settings.RenewItemSearchQueue, "HandleContextProcessing");
+	if Settings.RenewItemSearchQueue == "" then
+		LogDebug("The configuration value for RenewItemSearchQueue has not been set in the config.xml file.  Stopping Addon.");
+	end
+	if Settings.RenewItemSearchQueue ~= "" then
+		ProcessDataContexts("TransactionStatus", Settings.RenewItemSearchQueue, "HandleContextProcessing");
+	end	
+	
 end
+
+
+
+
 
 function HandleContextProcessing()
 
